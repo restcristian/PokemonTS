@@ -1,0 +1,16 @@
+.pokemonList {
+	list-style-type: none;
+	display: flex;
+	width:100%;
+	flex-wrap: wrap;
+	max-width:670px;
+	margin:0 auto;
+	box-sizing: border-box;
+	padding:0;
+}
+
+.pokemonList > li {
+	width:33.33333%;
+	padding:12px;
+	box-sizing: border-box;
+}
