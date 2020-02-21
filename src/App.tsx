@@ -3,6 +3,7 @@ import PokemonList from './components/PokemonList';
 import './App.css';
 import { IPokemon, IResource } from './types';
 
+
 const App: React.FC = () => {
 
   const [pokemonList, setPokemonList] = useState<Array<IPokemon>>([]);
@@ -13,7 +14,7 @@ const App: React.FC = () => {
 		const resources: Array<IResource> = await responseJson.results;
 		
 		return await Promise.all(resources.map(async (resource: IResource) => {
-			const pokemon = await fetchPokemon(resource);
+			const pokemon:IPokemon = await fetchPokemon(resource);
 			return pokemon;	  
 		}));
 	  }; 
@@ -26,7 +27,7 @@ const App: React.FC = () => {
   }
   return (
     <div className="App">
-		<PokemonList pokemons = {pokemonList} />
+		<PokemonList  />
     </div>
   );
 }

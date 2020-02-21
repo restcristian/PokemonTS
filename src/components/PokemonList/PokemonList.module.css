@@ -7,10 +7,17 @@
 	margin:0 auto;
 	box-sizing: border-box;
 	padding:0;
+	color:#fff;
 }
 
 .pokemonList > li {
 	width:33.33333%;
 	padding:12px;
 	box-sizing: border-box;
+}
+
+@media (max-width:530px) {
+	.pokemonList > li {
+		width:50%;
+	}
 }
