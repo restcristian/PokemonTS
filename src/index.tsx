@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { createStore, Store } from 'redux';
+import { createStore, Store, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import reducers from './redux/reducers';
 
-const store:Store = createStore(reducers);
+const store:Store = createStore(reducers, applyMiddleware(thunk));
 
 const app: JSX.Element = (
 	<Provider store = {store}>
