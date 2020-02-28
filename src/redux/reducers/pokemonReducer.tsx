@@ -1,5 +1,6 @@
 import { IPokemonReducerState, PokemonActionTypes } from "../../types/redux";
 import * as actionTypes from "../actions/types";
+import { IPokemon } from "../../types";
 
 const INITIAL_STATE: IPokemonReducerState = {
   pokemons: []
@@ -14,6 +15,13 @@ export default function(
       return {
         ...state,
         pokemons: [...action.payload]
+      };
+    case actionTypes.FETCH_POKEMON:
+      return {
+        ...state,
+        currentPokemon: {
+          ...(action.payload as IPokemon)
+        }
       };
   }
   return state;

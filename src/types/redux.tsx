@@ -4,6 +4,7 @@ import reducers from "../redux/reducers";
 
 export interface IPokemonReducerState {
   pokemons: Array<IPokemon>;
+  currentPokemon?: IPokemon;
 }
 
 // APP STATE
