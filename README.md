@@ -15,3 +15,5 @@ by create react app, and then the following features were integrated:
 ### Todo
 
 1. Add Jest and UI testing.
+
+Made with :heart: by Cristian Restituyo.
