@@ -8,6 +8,7 @@ import { createStore, Store, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import reducers from "./redux/reducers";
 import { RootState, PokemonActionTypes } from "./types/redux";
+import { BrowserRouter } from "react-router-dom";
 
 const store: Store<RootState, PokemonActionTypes> = createStore(
   reducers,
@@ -15,9 +16,11 @@ const store: Store<RootState, PokemonActionTypes> = createStore(
 );
 
 const app: JSX.Element = (
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
 );
 
 ReactDOM.render(app, document.getElementById("root"));
