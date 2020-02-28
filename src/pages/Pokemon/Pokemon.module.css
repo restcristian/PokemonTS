@@ -14,6 +14,10 @@
   border: 4px solid black;
 }
 
+.PokemonTable:hover .PokemonImageCol .shinyImg {
+  opacity: 1;
+}
+
 .PokemonTable .PokemonCol {
   flex: 1;
   padding: 24px;
@@ -22,6 +26,17 @@
 .PokemonTable .PokemonImageCol {
   flex: 0 1 auto;
   width: 140px;
+  position: relative;
+}
+
+.PokemonTable .PokemonImageCol .shinyImg {
+  position: absolute;
+  width: calc(100% - 48px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.2s opacity ease-in-out;
 }
 
 .PokemonImageCol img {
