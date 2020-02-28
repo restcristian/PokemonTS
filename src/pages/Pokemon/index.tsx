@@ -37,6 +37,11 @@ const Pokemon: React.FC<PokemonPageProps> = ({
         <div className={styles.PokemonTable}>
           <div className={`${styles.PokemonCol} ${styles.PokemonImageCol}`}>
             <img src={sprites.front_default} alt={name} />
+            <img
+              src={sprites.front_shiny}
+              alt={`${name}-shiny`}
+              className={styles.shinyImg}
+            />
           </div>
           <div className={`${styles.PokemonCol} ${styles.PokemonTextCol}`}>
             <div>
