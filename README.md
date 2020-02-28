@@ -15,5 +15,6 @@ by create react app, and then the following features were integrated:
 ### Todo
 
 1. Add Jest and UI testing.
+2. Replace fetch with Axios.
 
 Made with :heart: by Cristian Restituyo.
