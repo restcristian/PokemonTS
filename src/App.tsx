@@ -1,15 +1,15 @@
 import React from "react";
-import PokemonsPage from "./pages/Pokemons";
-import PokemonPage from "./pages/Pokemon";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import routes from "./routes";
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <Switch>
-        <Route path="/:name" component={PokemonPage} />
-        <Route path="/" component={PokemonsPage} />
+        {routes.map(route => (
+          <Route path={route.path} component={route.component} />
+        ))}
       </Switch>
     </div>
   );
