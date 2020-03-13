@@ -4,51 +4,49 @@ import { IPokemon, IResource } from "../../types";
 import { Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
 
-async function getPokemonInfo(pokemonResource: IResource): Promise<IPokemon> {
+export const getPokemonInfo = async (
+  pokemonResource: IResource
+): Promise<IPokemon> => {
   const response: Response = await fetch(
     `https://pokeapi.co/api/v2/pokemon/${pokemonResource.name}`
   );
   return response.json();
-}
+};
 
-export function fetchPokemons(): ThunkAction<
+export const fetchPokemons = (): ThunkAction<
   void,
   RootState,
   unknown,
   PokemonActionTypes
-> {
-  return async function(dispatch: Dispatch<PokemonActionTypes>) {
-    const response: Response = await fetch(
-      "https://pokeapi.co/api/v2/pokemon/"
-    );
-    const responseJson = await response.json();
-    const resources: Array<IResource> = await responseJson.results;
+> => async (dispatch: Dispatch<PokemonActionTypes>) => {
+  const response: Response = await fetch("https://pokeapi.co/api/v2/pokemon/");
+  const responseJson = await response.json();
+  const resources: Array<IResource> = await responseJson.results;
 
-    const pokemons = await Promise.all(
-      resources.map(async (resource: IResource) => {
-        const pokemon: IPokemon = await getPokemonInfo(resource);
-        return pokemon;
-      })
-    );
-    return dispatch({
-      type: FETCH_POKEMONS,
-      payload: pokemons
-    });
-  };
-}
+  const pokemons = await Promise.all(
+    resources.map(async (resource: IResource) => {
+      const pokemon: IPokemon = await getPokemonInfo(resource);
+      return pokemon;
+    })
+  );
+  return dispatch({
+    type: FETCH_POKEMONS,
+    payload: pokemons
+  });
+};
 
-export function fetchPokemon(
+export const fetchPokemon = (
   name: string
-): ThunkAction<void, RootState, unknown, PokemonActionTypes> {
-  return async function(dispatch: Dispatch<PokemonActionTypes>) {
-    const response: Response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${name}`
-    );
-    const pokemon: IPokemon = await response.json();
+): ThunkAction<void, RootState, unknown, PokemonActionTypes> => async (
+  dispatch: Dispatch<PokemonActionTypes>
+) => {
+  const response: Response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${name}`
+  );
+  const pokemon: IPokemon = await response.json();
 
-    return dispatch({
-      type: FETCH_POKEMON,
-      payload: pokemon
-    });
-  };
-}
+  return dispatch({
+    type: FETCH_POKEMON,
+    payload: pokemon
+  });
+};

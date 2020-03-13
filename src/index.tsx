@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import { BrowserRouter } from "react-router-dom";
+import { createStore, Store, applyMiddleware } from "redux";
+
+import { RootState, PokemonActionTypes } from "./types/redux";
+import * as serviceWorker from "./serviceWorker";
+import reducers from "./redux/reducers";
 import "./index.css";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import { Provider } from "react-redux";
-import { createStore, Store, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import reducers from "./redux/reducers";
-import { RootState, PokemonActionTypes } from "./types/redux";
-import { BrowserRouter } from "react-router-dom";
 
 const store: Store<RootState, PokemonActionTypes> = createStore(
   reducers,

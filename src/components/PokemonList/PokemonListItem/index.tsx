@@ -1,7 +1,7 @@
 import React from "react";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import { IPokemon } from "../../../types";
 import styles from "./PokemonListItem.module.css";
-import { withRouter, RouteComponentProps } from "react-router-dom";
 
 interface PokemonListItemProps extends RouteComponentProps {
   pokemon: IPokemon;
