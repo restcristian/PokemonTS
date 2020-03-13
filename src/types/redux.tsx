@@ -11,7 +11,6 @@ export interface IPokemonReducerState {
 export type RootState = ReturnType<typeof reducers>;
 
 // POKEMON ACTION CREATORS
-
 interface FetchPokemonsAction {
   type: typeof actionTypes.FETCH_POKEMONS;
   payload: Array<IPokemon>;

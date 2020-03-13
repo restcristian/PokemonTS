@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
 import PokemonListItem from "./PokemonListItem";
-import styles from "./PokemonList.module.css";
 import { ConnectedProps, connect } from "react-redux";
 import { RootState } from "../../types/redux";
 import { fetchPokemons } from "../../redux/actions";
+import styles from "./PokemonList.module.css";
 
-const mapStateToProps = (state: RootState) => {
-  return {
-    pokemons: state.pokemonReducer.pokemons
-  };
-};
+const mapStateToProps = (state: RootState) => ({
+  pokemons: state.pokemonReducer.pokemons
+});
 
 const connector = connect(mapStateToProps, { fetchPokemons });
 
@@ -20,13 +18,15 @@ type props = PropsFromRedux;
 const PokemonList: React.FC<props> = ({ pokemons, fetchPokemons }) => {
   useEffect(() => {
     fetchPokemons();
-  }, [fetchPokemons]);
-  const renderContent = () => {
-    return pokemons.map(pokemon => (
-      <PokemonListItem key={pokemon.id} pokemon={pokemon} />
-    ));
-  };
-  return <ul className={styles.pokemonList}>{renderContent()}</ul>;
+  }, [pokemons]);
+
+  return (
+    <ul className={styles.pokemonList}>
+      {pokemons.map(pokemon => (
+        <PokemonListItem key={pokemon.id} pokemon={pokemon} />
+      ))}
+    </ul>
+  );
 };
 
 export default connector(PokemonList);

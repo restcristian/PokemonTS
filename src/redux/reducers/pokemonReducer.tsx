@@ -6,10 +6,10 @@ const INITIAL_STATE: IPokemonReducerState = {
   pokemons: []
 };
 
-export default function(
+export default (
   state = INITIAL_STATE,
   action: PokemonActionTypes
-): IPokemonReducerState {
+): IPokemonReducerState => {
   switch (action.type) {
     case actionTypes.FETCH_POKEMONS:
       return {
@@ -25,4 +25,4 @@ export default function(
       };
   }
   return state;
-}
+};
