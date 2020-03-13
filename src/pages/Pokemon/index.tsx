@@ -31,7 +31,7 @@ const Pokemon: React.FC<PokemonPageProps> = ({
 
   useEffect(() => {
     fetchPokemon(name);
-  }, [fetchPokemon, name]);
+  }, [name]);
 
   if (currentPokemon) {
     const { name, sprites, weight, height, abilities } = currentPokemon;
