@@ -1,6 +1,6 @@
 ## PokemonTS
 
-[live demo here](https://fathomless-falls-99047.herokuapp.com/)
+[live demo here](https://pokemonts.herokuapp.com/)
 
 A test project that uses the PokemonAPI to test TypeScript on a React Project.
 
