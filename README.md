@@ -1,7 +1,5 @@
 ## PokemonTS
 
-[live demo here](https://pokemonts.herokuapp.com/)
-
 A test project that uses the PokemonAPI to test TypeScript on a React Project.
 
 This project was created by using the typescript template provided
